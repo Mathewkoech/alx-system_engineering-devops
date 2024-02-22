@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# A Bash script that displays contents of current directory list format
+
+for filename in *
+do
+    if [[ -f $filename ]]
+    then
+    name=$(echo "$filename" | cut -d'-' -f2-)
+    echo "$name"
+    fi
+done
+

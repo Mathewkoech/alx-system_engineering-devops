@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# show lines containing the word "bash" and display the PID
+
+ps aux | grep bash

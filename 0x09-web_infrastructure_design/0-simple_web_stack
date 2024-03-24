@@ -1,0 +1,15 @@
+https://imgur.com/hKDQOOM
+
+
+Explanations:
+
+Issues With This Infrastructure
+    1. Cannot scale if there's too much incoming traffic.
+        It would be hard to scale this infrastructure becauses one server contains the required components. The server
+        can quickly run out of resources or slow down when it starts receiving a lot of requests.
+    2. There are multiple SPOF (Single Point Of Failure) in this infrastructure.
+        For example, if the MySQL database server is down, the entire site would be down.
+
+    3. Downtime when maintenance needed.
+        When we need to run some maintenance checks on any component, they have to be put down or the server has to be 
+        turned off. Since there's only one server, the website would be experiencing a downtime.

@@ -8,10 +8,10 @@ sudo apt-get update -y -qq && \
 	 sudo apt-get install nginx -y
 
 #starting nginx service
-sudo srvice nginx start
+sudo service nginx start
 
 #allowing nginx on firewall
-sudo ufw 'Nginx HTTP'
+sudo ufw allow 'Nginx HTTP'
 
 #permissions for the files
 sudo chown -R "$USER":"$USER" /var/www/html

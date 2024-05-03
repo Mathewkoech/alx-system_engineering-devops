@@ -1,0 +1,32 @@
+global
+        stats timeout 30s
+        tune.ssl.default-dh-param 2048
+        user haproxy
+        group haproxy
+        daemon
+
+defaults
+        log     global
+        mode    http
+        option  httplog
+        option  dontlognull
+        timeout connect 5000
+        timeout client  50000
+        timeout server  50000
+#--mady.tech-params-begin--
+frontend mady-frontend
+        bind *:80
+        mode http
+        http-request redirect scheme https code 301 unless { ssl_fc }
+        http-request set-header X_Forwarded-Proto http
+        default_backend mady-backend
+
+frontend mady-frontend-https
+        bind *:443 ssl crt /etc/haproxy/certs/www.mady.tech.pem
+        http-request set-header X-Forwarded-Proto https
+        default_backend mady-backend
+backend mady-backend
+        balance roundrobin
+        server 531615-web-01 34.224.6.165:80 check
+        server 531615-web-02 100.27.10.187:80 check
+#--mady.tech-params-end--

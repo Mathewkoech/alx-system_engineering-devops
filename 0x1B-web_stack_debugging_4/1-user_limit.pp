@@ -1,4 +1,4 @@
-File Edit Options Buffers Tools Help                                                                                                                 
+File Edit Options Buffers Tools Help
 # Enable the user holberton to login and open files without error.
 
 # Increase hard file limit for Holberton user.
